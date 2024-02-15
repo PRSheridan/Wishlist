@@ -1,6 +1,7 @@
 import App from "./pages/App"
 import Home from "./pages/Home"
-import Item from "./pages/Item"
+import ItemList from "./pages/ItemList"
+import ItemForm from "./pages/ItemForm"
 import ErrorPage from "./pages/ErrorPage"
 
 const routes = [
@@ -11,12 +12,18 @@ const routes = [
       children: [
         {
             path: "/",
-            element: <Home />
+            element: <Home />,
+            children: [
+              {
+                path: "/",
+                element: <ItemList />,
+              },
+            ]
         },
         {
-            path: "/Item/:id",
-            element: <Item />,
-        },
+          path: "/ItemForm",
+          element: <ItemForm />
+        }
       ]
     },
 ]

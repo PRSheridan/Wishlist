@@ -1,11 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 
 function Home() {
+    const items = useOutletContext();
     return(
         <>
             <main>
                 <h1>Home</h1>
-                <Outlet />
+                <Outlet context={items}/>
             </main>
         </>
     )

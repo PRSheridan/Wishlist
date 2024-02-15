@@ -7,7 +7,7 @@ function App() {
   const [items, setItems] = useState([]);
 
   useEffect(() =>{
-      fetch("http://localhost:4000/users")
+      fetch("http://localhost:3000/items")
       .then(r => r.json())
       .then(data => setItems(data))
       .catch(error => console.error(error));
