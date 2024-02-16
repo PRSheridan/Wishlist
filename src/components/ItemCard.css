@@ -1,0 +1,26 @@
+.ItemCard {
+    background-color: #CCCCFF;
+    display: inline-block;
+    margin: 20px;
+    outline:auto;
+    width: 300px;
+}
+.item-name {
+    margin-left: 10px;
+    margin-right: 180px;
+}
+
+.item-description {
+    margin-left: 10px;
+}
+
+.item-image {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+.inline {
+    display: inline;
+}

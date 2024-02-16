@@ -15,7 +15,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="app-header">
+        <h1 className="header-text">Wishlist</h1>
         <NavBar />
       </header>
       <Outlet context={items}/>
