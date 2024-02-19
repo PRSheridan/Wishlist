@@ -1,25 +1,18 @@
 {
-    "items": [
-        {
-            "id": 1,
-            "name": "test 1",
-            "description": "some description",
-            "price": "1",
-            "image": "https://aaastriping.ca/wp-content/uploads/2017/01/temp-image-300x224.jpg"
-        },
-        {
-            "id": 2,
-            "name": "test 2",
-            "description": "some description",
-            "price": "1",
-            "image": "https://aaastriping.ca/wp-content/uploads/2017/01/temp-image-300x224.jpg"
-        },
-        {
-            "id": 3,
-            "name": "test 3",
-            "description": "some description",
-            "price": "1",
-            "image": "https://aaastriping.ca/wp-content/uploads/2017/01/temp-image-300x224.jpg"
-        }
-    ]
+  "items": [
+    {
+      "id": 1,
+      "name": "test 1",
+      "description": "12345678901234567890123456789012345678901234567890",
+      "price": "1",
+      "image": "https://aaastriping.ca/wp-content/uploads/2017/01/temp-image-300x224.jpg"
+    },
+    {
+      "name": "frog",
+      "description": "A frog to put in the pond outside.",
+      "price": "10",
+      "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
+      "id": 2
+    }
+  ]
 }

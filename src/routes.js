@@ -1,5 +1,5 @@
 import App from "./pages/App"
-import ItemList from "./pages/ItemList"
+import ItemList from "./components/ItemList"
 import ItemPage from "./pages/ItemPage"
 import ItemForm from "./pages/ItemForm"
 import ErrorPage from "./pages/ErrorPage"
