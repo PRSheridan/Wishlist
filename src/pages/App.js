@@ -12,7 +12,7 @@ function App() {
       .then(data => setItems(data))
       .catch(error => console.error(error));
   }, []);
-
+//get is not running when I want it to
   return (
     <div className="App">
       <header className="app-header">
