@@ -11,8 +11,8 @@ function App() {
       .then(r => r.json())
       .then(data => setItems(data))
       .catch(error => console.error(error));
-  }, []);
-//get is not running when I want it to
+  }, [items]);
+
   return (
     <div className="App">
       <header className="app-header">

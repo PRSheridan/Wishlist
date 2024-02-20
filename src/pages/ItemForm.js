@@ -1,12 +1,16 @@
-import React from "react"
+import React from "react";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+
 function ItemForm() {
+    const navigate = useNavigate();
+
     const [textInput, setTextInput] = useState("")
     const [descriptionInput, setDescriptionInput] = useState("")
     const [priceInput, setPriceInput] = useState("")
     const [imageInput, setImageInput] = useState("")
 
-    function handleSubmit(event) {
+    function handleSubmit() {
         fetch("http://localhost:3000/items", {
             method: "POST",
             body: JSON.stringify({
@@ -19,7 +23,7 @@ function ItemForm() {
         })
         .then((response) => response.json())
         .then((json) => console.log(json))
-
+        navigate("/")
     }
 
     return (

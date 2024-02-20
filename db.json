@@ -8,18 +8,11 @@
       "image": "https://aaastriping.ca/wp-content/uploads/2017/01/temp-image-300x224.jpg"
     },
     {
-      "name": "frog",
+      "name": "nice frog",
       "description": "A frog to put in the pond outside.",
-      "price": "10",
+      "price": "12",
       "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
       "id": 2
-    },
-    {
-      "name": "frog 2",
-      "description": "tets",
-      "price": "11",
-      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphoto%2Ffrog-gm175397603-20342543&psig=AOvVaw1eSd8fiaRDNcT6WY8zE3R9&ust=1708447072140000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCPjPyrvrt4QDFQAAAAAdAAAAABAE",
-      "id": 3
     }
   ]
 }

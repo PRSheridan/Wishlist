@@ -4,50 +4,65 @@
     margin: 15px;
     outline:auto;
     width: 300px;
-    height: auto;
+    min-height: 280px;
     vertical-align: top;
 }
+
+.item-header {
+    margin-bottom: 15px;
+}
+
 .item-name {
-    text-align: center;
+    text-align: left;
     margin-top: 2px;
     margin-left: 10px;
 }
 
 .item-price {
     float: right;
+    margin-top: 2px;
+    margin-right: 10px;
 }
 
-.item-description {
-    margin-left: 10px;
-}
-
-.item-expand {
-    text-align: center;
-}
-
-.item-image {
-    display: block;
-    margin-top: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
-}
 .inline {
     display: inline;
 }
 
-.remove-button {
-    float: right;
+.item-description {
+    margin-left: 10px;
+    margin-top:10px;
+    margin-bottom:8px;
+}
+
+.item-expand {
+    text-align: center;
+    margin-bottom: 2px;
+    min-width: 40px;
+    height:30px;
+    padding: 2px;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+img {
+    display: block;
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 200px;
+}
+
+button {
     margin-top: 2px;
     margin-right: 2px;
     width: auto;
     height: auto;
 }
 
+.remove-button {
+    float: right;
+}
+
 .edit-button {
     float: left;
-    margin-top: 2px;
-    margin-left: 2px;
-    width: auto;
-    height: auto;
 }
