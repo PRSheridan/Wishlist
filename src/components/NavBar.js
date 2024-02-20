@@ -1,21 +1,20 @@
 import { NavLink } from "react-router-dom";
 
-function NavBar() {
+function NavBar( {items, setItems} ) {
     return(
         <nav id="navbar">
             <NavLink
                 to="/"
-                /* add styling to Navlink */
                 className="nav-link"    
             >
             Home
             </NavLink>
-            <NavLink
-                to="/ItemForm"
-                /* add styling to Navlink */
+            <NavLink 
                 className="nav-link"
+                to={{pathname: '/ItemPage'}}
+                state={{setItems}}
             >
-            Add an Item
+                Add an Item 
             </NavLink>
         </nav>
     )

@@ -11,15 +11,21 @@ function App() {
       .then(r => r.json())
       .then(data => setItems(data))
       .catch(error => console.error(error));
-  }, [items]);
+  }, []);
+
+//having a hard time re-rendering items when needed
+//items loops infinetly because of fetch, consider putting fetch in ItemList?
+//Delete, Edit, and Add all need a refresh to work (but they do work)
+//consider other possible features?
 
   return (
     <div className="App">
       <header className="app-header">
         <h1 className="header-text">Wishlist</h1>
+        <hr />
         <NavBar />
       </header>
-      <Outlet context={items}/>
+      <Outlet context={{items, setItems}}/>
     </div>
   );
 }

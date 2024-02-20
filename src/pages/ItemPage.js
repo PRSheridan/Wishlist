@@ -1,57 +1,61 @@
-import {useState, useEffect} from 'react'
-import {useLocation, useNavigate} from "react-router-dom"
-import ItemCard from "../components/ItemCard"
+import React from "react";
+import {useState, useEffect} from "react";
+import {useNavigate, Outlet, useOutletContext } from "react-router-dom";
+import ItemCard from "../components/ItemCard";
 
 function ItemPage() {
     const navigate = useNavigate();
-    const location = useLocation();
-    const [item, setItem] = useState(location.state.item)
-    const [textInput, setTextInput] = useState(item.name)
-    const [descriptionInput, setDescriptionInput] = useState(item.description)
-    const [priceInput, setPriceInput] = useState(item.price)
-    const [imageInput, setImageInput] = useState(item.image)
+    const {items, setItems} = useOutletContext();
 
-    useEffect(() => {
+    const [textInput, setTextInput] = useState("")
+    const [descriptionInput, setDescriptionInput] = useState("")
+    const [priceInput, setPriceInput] = useState("")
+    const [imageInput, setImageInput] = useState("")
+
+    const [item, setitem] = useState({
+        name: textInput,
+        description: descriptionInput,
+        price: priceInput,
+        image: imageInput
+      })
+
+      useEffect(() => {
         let tempItem = {
-            id: item.id,
             name: textInput,
             description: descriptionInput,
             price: priceInput,
             image: imageInput
           }
-        setItem(tempItem)
-    }, [textInput, descriptionInput, priceInput, imageInput])
+        setitem(tempItem)
+        }, [textInput, descriptionInput, priceInput, imageInput])
 
-    function handleSubmit() {
-        fetch(`http://localhost:3000/items/${item.id}`, {
-            method: "PATCH",
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify({
-                name: textInput,
-                description: descriptionInput,
-                price: priceInput,
-                image: imageInput
-            }),
+    function handlePOST(event) {
+        event.preventDefault();
+        fetch("http://localhost:3000/items", {
+            method: "POST",
+            body: JSON.stringify(item),
+            headers: {"Content-type": "application/json"}
         })
         .then((response) => response.json())
-        .then((json) => console.log(json))
+        .then((data) => setItems([...items], data))
         navigate("/")
     }
 
     return (
         <>
-        <ItemCard item={item}/>
-        <div>
-            <h3 className="list-header">Edit Item: </h3>
-            <p className = "add-description">Revise the details of the item below, and click 'Submit' to update the item.</p>
-        </div>
-        <form display="block" onSubmit={handleSubmit}>
-            <input  onChange={(e) => setTextInput(e.target.value)} type="text" id="nameInput" placeholder={item.name}/>
-            <input  type="submit" id="submitButton" text="Submit"/>
-            <textarea  onChange={(e) => setDescriptionInput(e.target.value)} type="text" id="descriptionInput" placeholder={item.description}/>
-            <input  onChange={(e) => setPriceInput(e.target.value)} type="text" id="priceInput" placeholder={item.price}/>
-            <input  onChange={(e) => setImageInput(e.target.value)} type="text" id="imageInput" placeholder={item.image}/>
-        </form>
+            <ItemCard item={item}/>
+            <div>
+                <h3 className="list-header">Add an Item: </h3>
+                <p className = "add-description">Enter the details of the item below, and click 'Submit' to add the item to your wishlist.</p>
+            </div>
+            <form display="block" onSubmit={handlePOST}>
+                <input  onChange={(e) => setTextInput(e.target.value)} type="text" id="nameInput" placeholder="Enter name:"/>
+                <input  type="submit" id="submitButton" text="Submit"/>
+                <textarea  onChange={(e) => setDescriptionInput(e.target.value)} maxLength="100" type="text" id="descriptionInput" placeholder="Enter description:"/>
+                <input  onChange={(e) => setPriceInput(e.target.value)} type="text" id="priceInput" placeholder="Enter price:"/>
+                <input  onChange={(e) => setImageInput(e.target.value)} type="text" id="imageInput" placeholder="Enter image URL:"/>
+            </form>
+            <Outlet />
         </>
     )
 }

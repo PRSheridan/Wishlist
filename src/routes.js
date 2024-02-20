@@ -1,7 +1,7 @@
 import App from "./pages/App"
 import ItemList from "./components/ItemList"
 import ItemPage from "./pages/ItemPage"
-import ItemForm from "./pages/ItemForm"
+import EditPage from "./pages/EditPage"
 import ErrorPage from "./pages/ErrorPage"
 
 const routes = [
@@ -19,8 +19,8 @@ const routes = [
           element: <ItemPage />
         },
         {
-          path: "/ItemForm",
-          element: <ItemForm />
+          path: "/EditPage",
+          element: <EditPage />
         }
       ]
     },

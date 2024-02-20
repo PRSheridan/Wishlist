@@ -1,17 +1,17 @@
 {
   "items": [
     {
-      "id": 1,
-      "name": "test 1",
-      "description": "12345678901234567890123456789012345678901234567890",
-      "price": "1",
-      "image": "https://aaastriping.ca/wp-content/uploads/2017/01/temp-image-300x224.jpg"
-    },
-    {
       "name": "nice frog",
       "description": "A frog to put in the pond outside.",
       "price": "12",
       "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
+      "id": 1
+    },
+    {
+      "name": "ok computer",
+      "description": "Decent computer for looking at pictures of frogs.",
+      "price": "7",
+      "image": "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg",
       "id": 2
     }
   ]

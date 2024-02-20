@@ -2,7 +2,9 @@
     background-color: #CCCCFF;
     display: inline-block;
     margin: 15px;
-    outline:auto;
+    border-radius: 3px;
+    outline-color:darkslateblue;
+    outline-style: solid;
     width: 300px;
     min-height: 280px;
     vertical-align: top;
@@ -29,6 +31,8 @@
 }
 
 .item-description {
+    word-wrap: break-word;
+    margin-right: 10px;
     margin-left: 10px;
     margin-top:10px;
     margin-bottom:8px;
@@ -53,16 +57,19 @@ img {
 }
 
 button {
+    font-size: 20px;
+    font-weight: bold;
     margin-top: 2px;
-    margin-right: 2px;
-    width: auto;
-    height: auto;
+    width: 30px;
+    height: 30px;
 }
 
 .remove-button {
     float: right;
+    margin-right: 2px;
 }
 
 .edit-button {
     float: left;
+    margin-left: 2px;
 }
