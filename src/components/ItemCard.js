@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Outlet, useOutletContext } from "react-router-dom"
 import "./ItemCard.css"
 
 function ItemCard( {item} ) {
+    const {setItems, items} = useOutletContext()
     const navigate = useNavigate();
 
     function handleEdit() { navigate("./EditPage", {state: {item}})}
@@ -13,7 +14,7 @@ function ItemCard( {item} ) {
             }
         })
             .then(r => r.json())
-            .then(json => console.log(json))
+            .then(() => setItems(items.filter((thisItem) => thisItem.id !== item.id)))
     }
 
     return (
@@ -26,6 +27,7 @@ function ItemCard( {item} ) {
             </div>
             <img className="item-image" src={item.image} alt="Unavailable" />
             <p className="item-description">{item.description}</p>
+            <Outlet />
         </div>
     )
 }

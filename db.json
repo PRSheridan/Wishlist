@@ -1,14 +1,14 @@
 {
   "items": [
     {
-      "name": "nice frog",
+      "name": "nice guy",
       "description": "A frog to put in the pond outside.",
       "price": "12",
       "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
       "id": 1
     },
     {
-      "name": "ok computer",
+      "name": "decent computer",
       "description": "Decent computer for looking at pictures of frogs.",
       "price": "7",
       "image": "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg",

@@ -1,5 +1,5 @@
 import App from "./pages/App"
-import ItemList from "./components/ItemList"
+import ItemList from "./pages/ItemList"
 import ItemPage from "./pages/ItemPage"
 import EditPage from "./pages/EditPage"
 import ErrorPage from "./pages/ErrorPage"
@@ -24,6 +24,6 @@ const routes = [
         }
       ]
     },
-]
+];
 
-export default routes
+export default routes;

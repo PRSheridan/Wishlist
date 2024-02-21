@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+div .window {
+  border: 10px;
+}
+
 .header-text {
   display: inline;
   margin-left: 10px;

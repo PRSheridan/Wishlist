@@ -12,7 +12,7 @@ function ItemPage() {
     const [priceInput, setPriceInput] = useState("")
     const [imageInput, setImageInput] = useState("")
 
-    const [item, setitem] = useState({
+    const [item, setItem] = useState({
         name: textInput,
         description: descriptionInput,
         price: priceInput,
@@ -26,7 +26,7 @@ function ItemPage() {
             price: priceInput,
             image: imageInput
           }
-        setitem(tempItem)
+        setItem(tempItem)
         }, [textInput, descriptionInput, priceInput, imageInput])
 
     function handlePOST(event) {
@@ -37,26 +37,30 @@ function ItemPage() {
             headers: {"Content-type": "application/json"}
         })
         .then((response) => response.json())
-        .then((data) => setItems([...items], data))
+        .then((data) => setItems([...items, data]))
         navigate("/")
     }
 
     return (
-        <>
+        <div>
             <ItemCard item={item}/>
             <div>
                 <h3 className="list-header">Add an Item: </h3>
                 <p className = "add-description">Enter the details of the item below, and click 'Submit' to add the item to your wishlist.</p>
             </div>
             <form display="block" onSubmit={handlePOST}>
-                <input  onChange={(e) => setTextInput(e.target.value)} type="text" id="nameInput" placeholder="Enter name:"/>
+                <input type="text" id="nameInput" placeholder="Enter name:"
+                    onChange={(e) => setTextInput(e.target.value)} />
                 <input  type="submit" id="submitButton" text="Submit"/>
-                <textarea  onChange={(e) => setDescriptionInput(e.target.value)} maxLength="100" type="text" id="descriptionInput" placeholder="Enter description:"/>
-                <input  onChange={(e) => setPriceInput(e.target.value)} type="text" id="priceInput" placeholder="Enter price:"/>
-                <input  onChange={(e) => setImageInput(e.target.value)} type="text" id="imageInput" placeholder="Enter image URL:"/>
+                <textarea maxLength="100" type="text" id="descriptionInput" placeholder="Enter description:"
+                    onChange={(e) => setDescriptionInput(e.target.value)} />
+                <input  type="text" id="priceInput" placeholder="Enter price:"
+                    onChange={(e) => setPriceInput(e.target.value)} />
+                <input type="text" id="imageInput" placeholder="Enter image URL:"
+                    onChange={(e) => setImageInput(e.target.value)} />
             </form>
             <Outlet />
-        </>
+        </div>
     )
 }
 
