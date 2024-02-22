@@ -20,8 +20,8 @@ function ItemCard( {item} ) {
     return (
         <div className="ItemCard">
             <div className="item-header">
-                <button onClick={handleEdit} className="edit-button">🖉</button>
-                <button onClick={handleDelete} className="remove-button">🗑</button>
+                <button onClick={handleEdit} className="card-button edit-button">🖉</button>
+                <button onClick={handleDelete} className="card-button remove-button">🗑</button>
                 <h2 className="item-name inline">{item.name}</h2>
                 <h3 className="item-price inline">${item.price}</h3>
             </div>
