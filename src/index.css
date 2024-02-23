@@ -1,7 +1,7 @@
 
 /* Body, Header, Nav, General */
 body {
-  background-color:darkgray;
+  background-color:grey;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -23,7 +23,7 @@ div .window {
 }
 
 hr {
-  color:darkslateblue;
+  color:#FF9EAA;
   border-style: solid;
 }
 #navbar {
@@ -44,7 +44,7 @@ hr {
 }
 
 .active {
-  background: #CCCCFF;
+  background: #FFD0D0;
 }
 
 .inline {
@@ -83,14 +83,12 @@ aside {
   background: white;
   text-align: center;
   font-size: 15px;
-  outline-color:darkslateblue;
-  outline-style: solid;
-  border-radius: 2px;
+  border-color:#FF9EAA;
   outline-width: 1px;
 }
 
 .filter-button:active {
-  background: #CCCCFF;
+  background: #FFD0D0;
 }
 
 .add-description {

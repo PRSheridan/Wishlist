@@ -1,9 +1,9 @@
 .ItemCard {
-    background-color: #CCCCFF;
+    background-color: darkgrey;
     display: inline-block;
     margin: 15px;
     border-radius: 3px;
-    outline-color:darkslateblue;
+    outline-color: #FF9EAA;
     outline-style: solid;
     width: 300px;
     min-height: 280px;
