@@ -12,6 +12,7 @@ function EditPage() {
     const [updatedItem, setUpdatedItem] = useState(location.state.item)
     const [textInput, setTextInput] = useState(updatedItem.name)
     const [descriptionInput, setDescriptionInput] = useState(updatedItem.description)
+    const [categoryInput, setCategoryInput] = useState(updatedItem.category)
     const [priceInput, setPriceInput] = useState(updatedItem.price)
     const [imageInput, setImageInput] = useState(updatedItem.image)
 
@@ -21,11 +22,12 @@ function EditPage() {
             id: updatedItem.id,
             name: textInput,
             description: descriptionInput,
+            category: categoryInput,
             price: priceInput,
             image: imageInput
           }
         setUpdatedItem(tempItem)
-    }, [textInput, descriptionInput, priceInput, imageInput])
+    }, [textInput, descriptionInput, categoryInput, priceInput, imageInput])
 
     function handlePATCH(event) {
         event.preventDefault();
@@ -54,6 +56,8 @@ function EditPage() {
                 <input  type="submit" id="submitButton" text="Submit"/>
                 <textarea maxLength="100" type="text" id="descriptionInput" placeholder={updatedItem.description}
                     onChange={(e) => setDescriptionInput(e.target.value)} />
+                <input  type="text" id="categoryInput" placeholder={updatedItem.category}
+                    onChange={(e) => setCategoryInput(e.target.value)} />
                 <input  type="text" id="priceInput" placeholder={updatedItem.price}
                     onChange={(e) => setPriceInput(e.target.value)} />
                 <input type="text" id="imageInput" placeholder={updatedItem.image}

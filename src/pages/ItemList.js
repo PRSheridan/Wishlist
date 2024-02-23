@@ -1,11 +1,15 @@
 import { Outlet, useOutletContext } from "react-router-dom";
+import { useState, useEffect } from "react";
 import ItemCard from "../components/ItemCard"
 
 function ItemList() {
     const { items, setItems } = useOutletContext();
-    let itemCards = items.map(
-        (item) => ( <ItemCard key={item.id} item={item}/> ))
+    const [filterArg, setFilterArg] = useState("")
 
+    useEffect(() =>{}, [filterArg])
+
+    function comparePrice(a, b) {return b.price - a.price}
+    function compareCategory(a, b) {return b.category - a.category}
     function compareName(a, b) {
         const textA = a.name.toLowerCase();
         const textB = b.name.toLowerCase();
@@ -14,18 +18,26 @@ function ItemList() {
 
     function handleFilter(event) {
         event.preventDefault();
-        if (event.target.textContent === "Name") {
+        return setFilterArg(event.target.textContent)
+    }
+
+    function filterItems(filter) {
+        if (filter === "Name") {
+            console.log("Name")
             setItems(items.sort(compareName))
-        } else if (event.target.textContent === "Price") {
-        } else if (event.target.textContent === "Category") {
+        } else if (filter === "Price") { 
+            console.log("Price")
+            setItems(items.sort(comparePrice))
+        } else if (filter === "Necessity") { 
+            console.log("Necessity")
+            setItems(items.sort(compareCategory))
         }
-        itemCards = items.map(
-            (item) => ( <ItemCard key={item.id} item={item}/> ))
+        return (items.map(
+            (item) => ( <ItemCard key={item.id} item={item}/> )))
     }
     
     return(
         <aside>
-            <h1 className="list-header">Items:</h1>
             <div className="filter-options">Filter by: 
                 <button 
                     className="filter-button"
@@ -38,9 +50,9 @@ function ItemList() {
                 <button 
                     className="filter-button"
                     onClick={handleFilter}>
-                Category </button>
+                Necessity</button>
             </div>
-            {itemCards}
+            {filterItems(filterArg)}
             <Outlet />
         </aside>
     )

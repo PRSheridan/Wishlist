@@ -9,12 +9,14 @@ function ItemPage() {
 
     const [textInput, setTextInput] = useState("")
     const [descriptionInput, setDescriptionInput] = useState("")
+    const [categoryInput, setCategoryInput] = useState("")
     const [priceInput, setPriceInput] = useState("")
     const [imageInput, setImageInput] = useState("")
 
     const [item, setItem] = useState({
         name: textInput,
         description: descriptionInput,
+        category: categoryInput,
         price: priceInput,
         image: imageInput
       })
@@ -23,11 +25,12 @@ function ItemPage() {
         let tempItem = {
             name: textInput,
             description: descriptionInput,
+            category: categoryInput,
             price: priceInput,
             image: imageInput
           }
         setItem(tempItem)
-        }, [textInput, descriptionInput, priceInput, imageInput])
+        }, [textInput, descriptionInput, categoryInput, priceInput, imageInput])
 
     function handlePOST(event) {
         event.preventDefault();
@@ -54,6 +57,8 @@ function ItemPage() {
                 <input  type="submit" id="submitButton" text="Submit"/>
                 <textarea maxLength="100" type="text" id="descriptionInput" placeholder="Enter description:"
                     onChange={(e) => setDescriptionInput(e.target.value)} />
+                <input  type="text" id="categoryInput" placeholder="Enter necessity (1-5):"
+                    onChange={(e) => setCategoryInput(e.target.value)} />
                 <input  type="text" id="priceInput" placeholder="Enter price:"
                     onChange={(e) => setPriceInput(e.target.value)} />
                 <input type="text" id="imageInput" placeholder="Enter image URL:"

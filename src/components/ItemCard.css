@@ -11,19 +11,38 @@
 }
 
 .item-header {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .item-name {
-    text-align: left;
+    text-align: center;
+    font-style: italic;
     margin-top: 2px;
-    margin-left: 10px;
+    margin-bottom:2px
+}
+
+.item-category {
+    margin-left: 50px;
+    margin-top:2px;
+    margin-bottom:1px;
 }
 
 .item-price {
     float: right;
     margin-top: 2px;
-    margin-right: 10px;
+    margin-right: 50px;
+    margin-bottom:1px;
+}
+
+.item-body {
+    text-align: center;
+}
+
+img {
+    border: 1px solid #555;
+    margin-top: 1px;
+    max-height: 150px;
+    max-width: auto;
 }
 
 .item-description {
@@ -42,14 +61,6 @@
     padding: 2px;
     font-weight: 300;
     font-size: 15px;
-}
-
-img {
-    display: block;
-    margin-top: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 200px;
 }
 
 .card-button {

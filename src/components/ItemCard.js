@@ -22,11 +22,14 @@ function ItemCard( {item} ) {
             <div className="item-header">
                 <button onClick={handleEdit} className="card-button edit-button">🖉</button>
                 <button onClick={handleDelete} className="card-button remove-button">🗑</button>
-                <h2 className="item-name inline">{item.name}</h2>
-                <h3 className="item-price inline">${item.price}</h3>
+                <h2 className="item-name">{item.name}</h2>
+                <h5 className="item-category inline">Necessity: {item.category}</h5>
+                <h5 className="item-price inline">Price: ${item.price}</h5>
             </div>
-            <img className="item-image" src={item.image} alt="Unavailable" />
-            <p className="item-description">{item.description}</p>
+            <div className="item-body">
+                <img className="item-image" src={item.image} alt="Unavailable" />
+                <p className="item-description">{item.description}</p>
+            </div>
             <Outlet />
         </div>
     )

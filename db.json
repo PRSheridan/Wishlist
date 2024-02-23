@@ -1,18 +1,44 @@
 {
   "items": [
     {
-      "name": "very nice guy",
+      "name": "nice guy",
       "description": "A frog to put in the pond outside.",
+      "category": "5",
       "price": "12",
       "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
       "id": 1
     },
     {
+      "name": "Spray bottle",
+      "description": "To keep that little guy hydrated",
+      "category": "2",
+      "price": "7",
+      "image": "https://target.scene7.com/is/image/Target/GUEST_18a8ae37-9bcd-4bc9-9a3b-fd2d557d2cf0?wid=488&hei=488&fmt=pjpeg",
+      "id": 2
+    },
+    {
+      "name": "Mangrove Tree",
+      "description": "A mangrove tree for the frog to live in.",
+      "category": "3",
+      "price": "100",
+      "image": "https://www.gardenia.net/wp-content/uploads/2023/05/avicennia-germinans-780x520.webp",
+      "id": 3
+    },
+    {
       "name": "decent computer",
       "description": "Decent computer for looking at pictures of frogs.",
-      "price": "7",
+      "category": "3",
+      "price": "300",
       "image": "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg",
-      "id": 2
+      "id": 4
+    },
+    {
+      "name": "Frog Terrarium",
+      "description": "Little guy needs a home",
+      "category": "1",
+      "price": "80",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt0YbNL7gsWQmBAXW4caXasM8ijTzHd7LdKSkxVu0raxjJ6Ke60aeixzMD8Hm-yOwemKU&usqp=CAU",
+      "id": 6
     }
   ]
 }
