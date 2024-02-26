@@ -1,7 +1,7 @@
 import { useNavigate, Outlet, useOutletContext } from "react-router-dom"
 import "./ItemCard.css"
 
-function ItemCard( {item} ) {
+function ItemCard( {item, location} ) {
     const {setItems, items} = useOutletContext()
     const navigate = useNavigate();
 
@@ -20,8 +20,12 @@ function ItemCard( {item} ) {
     return (
         <div className="ItemCard">
             <div className="item-header">
-                <button onClick={handleEdit} className="card-button edit-button">🖉</button>
-                <button onClick={handleDelete} className="card-button remove-button">🗑</button>
+                {location === "ItemList" 
+                ? <>
+                    <button onClick={handleEdit} className="card-button edit-button">🖉</button>
+                    <button onClick={handleDelete} className="card-button remove-button">🗑</button> </>
+                : <div className="placeholder-button"></div>
+                }
                 <h2 className="item-name">{item.name}</h2>
                 <h5 className="item-category inline">Necessity: {item.category}</h5>
                 <h5 className="item-price inline">Price: ${item.price}</h5>

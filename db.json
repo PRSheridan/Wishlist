@@ -1,8 +1,8 @@
 {
   "items": [
     {
-      "name": "nice guy",
-      "description": "A frog to put in the pond outside.",
+      "name": "regular guy",
+      "description": "A frog to put in the mangrove tree outside.",
       "category": "5",
       "price": "12",
       "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
@@ -12,7 +12,7 @@
       "name": "Spray bottle",
       "description": "To keep that little guy hydrated",
       "category": "2",
-      "price": "7",
+      "price": "4",
       "image": "https://target.scene7.com/is/image/Target/GUEST_18a8ae37-9bcd-4bc9-9a3b-fd2d557d2cf0?wid=488&hei=488&fmt=pjpeg",
       "id": 2
     },

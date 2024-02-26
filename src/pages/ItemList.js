@@ -1,13 +1,17 @@
-import { Outlet, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Outlet, useOutletContext } from "react-router-dom";
 import ItemCard from "../components/ItemCard"
 
+//ItemList handles mapping all items to ItemCards, and allowing the user to filter the items.
 function ItemList() {
     const { items, setItems } = useOutletContext();
     const [filterArg, setFilterArg] = useState("")
 
+//setFilterArg, then refresh the page when a new filter is selected.
+    const handleFilter = (event) => { setFilterArg(event.target.textContent) }
     useEffect(() =>{}, [filterArg])
 
+//handle comparisons of price, category, and alphabetical order.
     function comparePrice(a, b) {return b.price - a.price}
     function compareCategory(a, b) {return b.category - a.category}
     function compareName(a, b) {
@@ -16,25 +20,14 @@ function ItemList() {
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     }
 
-    function handleFilter(event) {
-        event.preventDefault();
-        return setFilterArg(event.target.textContent)
-    }
-
+//depeding on the value of filter, sort then map items to ItemCards.
     function filterItems(filter) {
-        if (filter === "Name") {
-            console.log("Name")
-            setItems(items.sort(compareName))
-        } else if (filter === "Price") { 
-            console.log("Price")
-            setItems(items.sort(comparePrice))
-        } else if (filter === "Necessity") { 
-            console.log("Necessity")
-            setItems(items.sort(compareCategory))
-        }
-        return (items.map(
-            (item) => ( <ItemCard key={item.id} item={item}/> )))
-    }
+        if (filter === "Name") { setItems(items.sort(compareName)) } else 
+        if (filter === "Price") { setItems(items.sort(comparePrice)) } else 
+        if (filter === "Necessity") { setItems(items.sort(compareCategory)) }
+        return (items.map(item => (
+             <ItemCard key={item.id} item={item} location={"ItemList"}/> 
+    )))}
     
     return(
         <aside>

@@ -1,34 +1,15 @@
-import {useState, useEffect} from 'react'
+import { useState } from 'react'
 import {useLocation, useNavigate, Outlet, useOutletContext} from "react-router-dom"
 import ItemCard from "../components/ItemCard"
 
-//unsure if I need EditPage and ItemPage but keeping for now (?)
-
+//updatedItem = location.state.item (clicked item), and allow the user to change the item's details
 function EditPage() {
     const navigate = useNavigate();
     const location = useLocation();
     const {items, setItems} = useOutletContext();
-
     const [updatedItem, setUpdatedItem] = useState(location.state.item)
-    const [textInput, setTextInput] = useState(updatedItem.name)
-    const [descriptionInput, setDescriptionInput] = useState(updatedItem.description)
-    const [categoryInput, setCategoryInput] = useState(updatedItem.category)
-    const [priceInput, setPriceInput] = useState(updatedItem.price)
-    const [imageInput, setImageInput] = useState(updatedItem.image)
 
-    useEffect(() => {
-        //this could be replaced by mapping the new key:value rather than having state for each key:value (?)
-        let tempItem = {
-            id: updatedItem.id,
-            name: textInput,
-            description: descriptionInput,
-            category: categoryInput,
-            price: priceInput,
-            image: imageInput
-          }
-        setUpdatedItem(tempItem)
-    }, [textInput, descriptionInput, categoryInput, priceInput, imageInput])
-
+//setItems (id matching) with the updatedItem values, then navigate home after sending PATCH request
     function handlePATCH(event) {
         event.preventDefault();
         fetch(`http://localhost:3000/items/${updatedItem.id}`, {
@@ -43,25 +24,46 @@ function EditPage() {
         navigate("/")
     };
 
+//each input of form: setUpdatedItem to a tempItem with updated value
+//onSubmit call handlePATCH^^^
     return (
-        <div>
-            <ItemCard item={updatedItem}/>
+        <div className="EditPage">
+            <ItemCard item={updatedItem} location ={"EditPage"}/>
             <div>
                 <h3 className="list-header">Edit Item: </h3>
                 <p className = "add-description">Revise the details of the item below, and click 'Submit' to update the item.</p>
             </div>
             <form display="block" onSubmit={handlePATCH}>
                 <input type="text" id="nameInput" placeholder={updatedItem.name}
-                    onChange={(e) => setTextInput(e.target.value)} />
+                    onChange={(e) => setUpdatedItem(() => { let tempItem = {...updatedItem}
+                    tempItem.name = e.target.value
+                    return tempItem
+                    })} />
                 <input  type="submit" id="submitButton" text="Submit"/>
                 <textarea maxLength="100" type="text" id="descriptionInput" placeholder={updatedItem.description}
-                    onChange={(e) => setDescriptionInput(e.target.value)} />
-                <input  type="text" id="categoryInput" placeholder={updatedItem.category}
-                    onChange={(e) => setCategoryInput(e.target.value)} />
-                <input  type="text" id="priceInput" placeholder={updatedItem.price}
-                    onChange={(e) => setPriceInput(e.target.value)} />
+                    onChange={(e) => setUpdatedItem(() => { let tempItem = {...updatedItem}
+                    tempItem.description = e.target.value
+                    return tempItem
+                    })} />
+                <label htmlFor="categoryInput">Select necessity:</label>
+                <select id="categoryInput" 
+                    onChange={(e) => setUpdatedItem(() => { let tempItem = {...updatedItem}
+                    tempItem.category = e.target.value
+                    return tempItem
+                    })}>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                    <option value="4">4</option><option value="5">5</option>
+                </select>
+                <input  type="number" id="priceInput" placeholder={updatedItem.price}
+                    onChange={(e) => setUpdatedItem(() => { let tempItem = {...updatedItem}
+                    tempItem.price = e.target.value
+                    return tempItem
+                    })} />
                 <input type="text" id="imageInput" placeholder={updatedItem.image}
-                    onChange={(e) => setImageInput(e.target.value)} />
+                    onChange={(e) => setUpdatedItem(() => { let tempItem = {...updatedItem}
+                    tempItem.image = e.target.value
+                    return tempItem
+                    })} />
             </form>
             <Outlet />
         </div>

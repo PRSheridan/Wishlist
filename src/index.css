@@ -58,6 +58,14 @@ aside {
   margin-left:90px;
 }
 
+.ItemPage {
+  margin-left:90px;
+}
+
+.EditPage {
+  margin-left:90px;
+}
+
 .list-header {
   margin-left: 20px;
   display: inline;
@@ -101,20 +109,6 @@ aside {
   margin-right: 60px
 }
 
-#submitButton {
-  display: inline-block;
-  min-width: 80px;
-  padding: 5px;
-  margin: 0px 6px 6px;
-  background: white;
-  font-weight: 400;
-  font-size: 20px;
-}
-
-#submitButton:hover {
-  background-color:#CCCCFF;
-}
-
 #descriptionInput {
   height:60px
 }
@@ -137,4 +131,35 @@ input {
   margin-bottom: 10px;
   font-size: large;
 }
+
+label {
+  margin-left: 20px;
+  margin-right:10px;
+  color:white;
+  font-weight: 500;
+  font-style: italic;
+}
+
+#categoryInput {
+  margin-bottom: 10px;
+  width: 35px;
+  height: 25px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#submitButton {
+  display: inline-block;
+  min-width: 80px;
+  padding: 5px;
+  margin: 0px 6px 6px;
+  background: white;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#submitButton:hover {
+  background-color:#CCCCFF;
+}
+
 
