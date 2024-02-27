@@ -11,7 +11,8 @@ function ItemPage() {
         description: "",
         category: "",
         price: "",
-        image: ""
+        image: "",
+        deleted: false
       })
 
 //POST newItem to items, and navigate home.
@@ -31,11 +32,11 @@ function ItemPage() {
 //onSubmit call handlePOST^^^
     return (
         <div className="ItemPage">
-            <ItemCard item={newItem} location={"ItemPage"}/>
             <div>
                 <h3 className="list-header">Add an Item: </h3>
-                <p className = "add-description">Enter the details of the item below, and click 'Submit' to add the item to your wishlist.</p>
             </div>
+            <ItemCard item={newItem} location={"ItemPage"}/>
+            <p className = "add-description">Enter the details of the item below, and click 'Submit' to add the item to your wishlist.</p>
             <form display="block" onSubmit={handlePOST}>
                 <input type="text" id="nameInput" placeholder="Enter title: "
                     onChange={(e) => setNewItem(() => { let tempItem = {...newItem}

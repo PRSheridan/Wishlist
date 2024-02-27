@@ -1,9 +1,12 @@
 import App from "./pages/App"
 import ItemList from "./pages/ItemList"
+import DeletedList from "./pages/DeletedList"
 import ItemPage from "./pages/ItemPage"
 import EditPage from "./pages/EditPage"
 import ErrorPage from "./pages/ErrorPage"
 
+//App renders ItemList under NavBar
+//ItemPage and EditPage replace ItemList
 const routes = [
     {
       path: "/",
@@ -13,6 +16,10 @@ const routes = [
         {
           path: "/",
           element: <ItemList />
+        },
+        {
+          path: "/DeletedList",
+          element: <DeletedList />
         },
         {
           path: "/ItemPage",

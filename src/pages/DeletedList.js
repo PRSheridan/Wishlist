@@ -3,7 +3,7 @@ import { Outlet, useOutletContext } from "react-router-dom";
 import ItemCard from "../components/ItemCard"
 
 //ItemList handles mapping all items to ItemCards, and allowing the user to filter the items.
-function ItemList() {
+function DeletedList() {
     const { items, setItems } = useOutletContext();
     const [filterArg, setFilterArg] = useState("")
 
@@ -26,14 +26,14 @@ function ItemList() {
         if (filter === "Price") { setItems(items.sort(comparePrice)) } else 
         if (filter === "Necessity") { setItems(items.sort(compareCategory)) }
         return (items.map(thisItem => {
-            return (!thisItem.deleted 
-                ? <ItemCard key={thisItem.id} item={thisItem} location={"ItemList"}/> 
+            return (thisItem.deleted 
+                ? <ItemCard key={thisItem.id} item={thisItem} location={"DeletedList"}/> 
                 : null)
         }))}
-
+    
     return(
         <aside>
-            <h2 className="list-header">Current Items: </h2>
+            <h2 className="list-header">Recently Deleted: </h2>
             <div className="filter-options">Filter by: 
                 <button 
                     className="filter-button"
@@ -54,4 +54,4 @@ function ItemList() {
     )
 }
 
-export default ItemList
+export default DeletedList
