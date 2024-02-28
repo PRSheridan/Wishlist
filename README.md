@@ -10,6 +10,8 @@ Using the given files, you will need to initialize the server before being able 
 
 ```json-server --watch db.json```
 
+```npm start```
+
 <h3>Description: </h3>
 When the page initially loads, you will see the *homepage* rendering with a list of card for the current items. A navigation bar at the top of the page allows you to navigate to the *Add new items* page, and the *Recently deleted* page. The *Add new items* page allows a user to fill out a new item form, and preview what their item card will look like. The form contains 5 fields: **name, necessity, price, image, and a description**. After filling these fields, and clicking **submit**, the user will be redirected to the *homepage*, which has been updated with the new item.
 <br />
