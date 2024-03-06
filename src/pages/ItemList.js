@@ -6,10 +6,16 @@ import ItemCard from "../components/ItemCard"
 function ItemList() {
     const { items, setItems } = useOutletContext();
     const [filterArg, setFilterArg] = useState("")
+    const [deletedArg, setDeletedArg] = useState(false)
 
 //setFilterArg, then refresh the page when a new filter is selected.
     const handleFilter = (event) => { setFilterArg(event.target.textContent) }
-    useEffect(() =>{}, [filterArg])
+
+    //useEffect is not doing anything here.
+    useEffect(() =>{
+//if filter === "", sort clone of items + filter for deleted/undeleted items.
+//Create new state variable for deletedArg (if displaying deleted items or not)
+    }, [filterArg])
 
 //handle comparisons of price, category, and alphabetical order.
     function comparePrice(a, b) {return b.price - a.price}
@@ -26,6 +32,8 @@ function ItemList() {
         if (filter === "Price") { setItems(items.sort(comparePrice)) } else 
         if (filter === "Necessity") { setItems(items.sort(compareCategory)) }
         return (items.map(thisItem => {
+//This line is the only major difference of ItemList and DeletedList. Find a way to combine the two pages.
+//or remove deleted list entirely.
             return (!thisItem.deleted 
                 ? <ItemCard key={thisItem.id} item={thisItem} location={"ItemList"}/> 
                 : null)

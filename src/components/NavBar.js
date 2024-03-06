@@ -16,13 +16,6 @@ function NavBar( {setItems} ) {
             >
                 Add an Item 
             </NavLink>
-            <NavLink 
-                className="nav-link"
-                to={{pathname: '/DeletedList'}}
-                state={{setItems}}
-            >
-                Deleted
-            </NavLink>
         </nav>
     )
 }
