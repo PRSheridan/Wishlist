@@ -30,6 +30,9 @@ function ItemPage() {
 
 //each input of form: setNewItem to a tempItem with updated value.
 //onSubmit call handlePOST^^^
+
+/*forms need a value, and this onChange should call a single handler function */
+
     return (
         <div className="ItemPage">
             <div>

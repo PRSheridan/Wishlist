@@ -1,49 +1,49 @@
 {
   "items": [
     {
-      "name": "regular guy",
-      "description": "A frog to put in the mangrove tree outside.",
-      "category": "5",
+      "name": "Frog",
+      "description": "A pet frog.",
+      "category": "4",
       "price": "12",
       "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
       "id": 1,
       "deleted": false
     },
     {
-      "name": "Spray bottle",
-      "description": "To keep that little guy hydrated",
-      "category": "2",
-      "price": "4",
-      "image": "https://target.scene7.com/is/image/Target/GUEST_18a8ae37-9bcd-4bc9-9a3b-fd2d557d2cf0?wid=488&hei=488&fmt=pjpeg",
-      "id": 2,
-      "deleted": false
-    },
-    {
-      "name": "Mangrove Tree",
-      "description": "A mangrove tree for the frog to live in.",
-      "category": "3",
-      "price": "100",
-      "image": "https://www.gardenia.net/wp-content/uploads/2023/05/avicennia-germinans-780x520.webp",
-      "id": 3,
-      "deleted": false
-    },
-    {
-      "name": "decent computer",
-      "description": "Decent computer for looking at pictures of frogs.",
-      "category": "3",
-      "price": "300",
-      "image": "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg",
+      "name": "Laptop",
+      "description": "For looking at pictures of dogs.\n",
+      "category": "5",
+      "price": "550",
+      "image": "https://p4-ofp.static.pub/fes/cms/2022/05/02/71vul3vrsiwytu3dfrk08b5pvo9lcc034080.png",
       "id": 4,
       "deleted": false
     },
     {
-      "name": "Frog Terrarium",
-      "description": "Little guy needs a home",
-      "category": "1",
-      "price": "80",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt0YbNL7gsWQmBAXW4caXasM8ijTzHd7LdKSkxVu0raxjJ6Ke60aeixzMD8Hm-yOwemKU&usqp=CAU",
-      "id": 6,
-      "deleted": false
+      "name": "Cactus",
+      "description": "example",
+      "category": "2",
+      "price": "15",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjAc3OMCEm_SgBd97nuQsE6Kvbvj5xbcDAG48IDsE3zw&s",
+      "deleted": false,
+      "id": 5
+    },
+    {
+      "name": "Keyboard",
+      "description": "example",
+      "category": "3",
+      "price": "100",
+      "image": "https://phandroid.com/wp-content/uploads/2022/02/keychron-q2-review-1.jpg",
+      "deleted": false,
+      "id": 9
+    },
+    {
+      "name": "Lamp",
+      "description": "example",
+      "category": "3",
+      "price": "12",
+      "image": "https://target.scene7.com/is/image/Target/GUEST_43f55026-adf3-4fce-aed3-817994ff6d0e?wid=488&hei=488&fmt=pjpeg",
+      "deleted": false,
+      "id": 10
     }
   ]
 }
