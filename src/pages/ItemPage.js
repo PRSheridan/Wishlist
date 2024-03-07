@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useLocation, useNavigate, Outlet, useOutletContext } from "react-router-dom";
-import ItemCard from "../components/ItemCard";
+import ItemCard from "./ItemCard";
 
 //create a new item, and allow the user to fill out details.
 function ItemPage() {
@@ -72,7 +72,7 @@ function handleChange(event) {
     return (
         <div className="ItemPage">
             <div>
-                <h3 className="list-header">Add an Item: </h3>
+                <h3 className="list-header">{isNewItem ? "Add an Item:" : "Edit Item:"} </h3>
             </div>
 
             <ItemCard item={{

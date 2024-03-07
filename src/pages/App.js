@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/NavBar"
+import NavBar from "./NavBar"
 
 //retreive items, create header && NavBar, pass item state as Outlet context
 function App() {

@@ -6,15 +6,13 @@ function NavBar( {setItems} ) {
             <NavLink
                 to="/"
                 className="nav-link"    
-            >
-            Home
+            >Home
             </NavLink>
             <NavLink 
                 className="nav-link"
                 to={{pathname: '/ItemPage'}}
                 state={{setItems}}
-            >
-                Add an Item 
+            >Add an Item 
             </NavLink>
         </nav>
     )

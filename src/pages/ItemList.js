@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
 import { Outlet, useOutletContext } from "react-router-dom";
-import ItemCard from "../components/ItemCard"
+import ItemCard from "./ItemCard"
 
 //ItemList handles mapping all items to ItemCards, and allowing the user to filter the items.
 function ItemList() {
     const {items, setItems} = useOutletContext()
     const [filterArg, setFilterArg] = useState("")
     const [deletedArg, setDeletedArg] = useState(false)
-
-//setFilterArg, then refresh the page when a new filter is selected.
     const handleFilter = (event) => { setFilterArg(event.target.textContent) }
+    const handleDeletedArg = () => { setDeletedArg(!deletedArg) }
 
-//handle comparisons of price, category, and alphabetical order.
     function comparePrice(a, b) {return b.price - a.price}
     function compareCategory(a, b) {return b.category - a.category}
     function compareName(a, b) {
@@ -20,7 +18,12 @@ function ItemList() {
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     }
 
-//if filter === "", sort clone of items + filter for deleted/undeleted items.
+    function filterDeleted(thisItem) {
+        if (deletedArg === false) {
+            if (thisItem.deleted === false) { return thisItem } } else {
+            if (thisItem.deleted === true) { return thisItem } }
+    }
+
 //Create new state variable for deletedArg (if displaying deleted items or not)
 //move deleted items button to within itemlist (near filter)
 
@@ -48,8 +51,12 @@ function ItemList() {
                     className="filter-button"
                     onClick={handleFilter}>
                 Necessity</button>
+                <button
+                    className="filter-button"
+                    onClick={handleDeletedArg}>
+                Deleted</button>
             </div>
-            {items.map((item) => {
+            {items.filter(filterDeleted).map((item) => {
                 return ( <ItemCard key={item.name} item={item} /> )
             })}
             <Outlet />
