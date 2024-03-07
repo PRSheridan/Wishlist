@@ -1,17 +1,20 @@
 import { useState } from "react";
-import {useNavigate, Outlet, useOutletContext } from "react-router-dom";
+import {useLocation, useNavigate, Outlet, useOutletContext } from "react-router-dom";
 import ItemCard from "../components/ItemCard";
 
 //create a new item, and allow the user to fill out details.
 function ItemPage() {
+
     const navigate = useNavigate();
+    const location = useLocation();
+    const isNewItem = (location.state.item === undefined)
     const {items, setItems} = useOutletContext();
 
-    const [newName, setNewName] = useState("")
-    const [newDescription, setNewDescription] = useState("")
-    const [newCategory, setNewCategory] = useState("")
-    const [newPrice, setNewPrice] = useState("")
-    const [newImage, setNewImage] = useState("")
+    const [newName, setNewName] = useState(isNewItem ? "" : location.state.item.name)
+    const [newDescription, setNewDescription] = useState(isNewItem ? "" : location.state.item.description)
+    const [newCategory, setNewCategory] = useState(isNewItem ? "" : location.state.item.category)
+    const [newPrice, setNewPrice] = useState(isNewItem ? "" : location.state.item.price)
+    const [newImage, setNewImage] = useState(isNewItem ? "" : location.state.item.image)
 
 //POST newItem to items, and navigate home.
     function handlePOST(event) {
@@ -33,6 +36,30 @@ function ItemPage() {
         .then((data) => setItems([...items, data]))
         navigate("/")
     }
+
+    function handlePATCH(event) {
+        event.preventDefault();
+        const newItem = {
+            id: location.state.item.id,
+            name: newName,
+            description: newDescription,
+            category: newCategory,
+            price: newPrice,
+            image: newImage,
+            deleted: false
+          }
+
+        fetch(`http://localhost:3000/items/${location.state.item.id}`, {
+            method: "PATCH",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify(newItem)
+            })
+        .then((response) => response.json())
+        .then(() => setItems(items.map(item => {
+            if( item.id === location.state.item.id ) { return newItem }
+            else { return item }})))
+        navigate("/")
+    };
 
 function handleChange(event) {
     if (event.target.id === "nameInput") { setNewName(event.target.value) } else 
@@ -58,14 +85,20 @@ function handleChange(event) {
             location={"ItemPage"}/>
 
             <p className = "add-description">
-            Enter the details of the item below, and click 'Submit' to add the item to your wishlist.</p>
+                {isNewItem 
+                ? `Enter the details of the item below, and click 'Submit' to add the item to your wishlist.`
+                : `Revise the details of the item below, and click 'Submit' to update the item.`}
+                </p>
 
-            <form display="block" onSubmit={handlePOST}>
-                <input type="text" id="nameInput" placeholder="Enter title: "
+            <form display="block" onSubmit={isNewItem 
+                ? handlePOST : handlePATCH}>
+                <input type="text" id="nameInput" 
+                    placeholder={isNewItem ? "Enter title: " : location.state.item.name}
                     value={newName} onChange={handleChange} />
 
                 <input  type="submit" id="submitButton" text="Submit"/>
-                <textarea maxLength="100" type="text" id="descriptionInput" placeholder="Enter description: "
+                <textarea maxLength="100" type="text" id="descriptionInput" 
+                    placeholder={isNewItem ? "Enter description: " : location.state.item.description}
                     value={newDescription} onChange={handleChange} />
 
                 <label htmlFor="categoryInput">Select necessity:</label>
@@ -75,10 +108,12 @@ function handleChange(event) {
                         <option value="4">4</option><option value="5">5</option>
                 </select>
 
-                <input  type="number" id="priceInput" placeholder="Enter price: "
+                <input  type="number" id="priceInput" 
+                    placeholder={isNewItem ? "Enter price: " : location.state.item.price}
                     value={newPrice} onChange={handleChange} />
 
-                <input type="text" id="imageInput" placeholder="Enter image URL: "
+                <input type="text" id="imageInput" 
+                    placeholder={isNewItem ? "Enter image URL: " : location.state.item.image}
                     value={newImage} onChange={handleChange} />
             </form>
             <Outlet />

@@ -1,10 +1,10 @@
 import { useNavigate, Outlet, useOutletContext } from "react-router-dom"
 import "./ItemCard.css"
 
-function ItemCard( {item, location} ) {
+function ItemCard( { item } ) {
     const {setItems, items} = useOutletContext()
     const navigate = useNavigate();
-    const navEdit = () => {navigate("./EditPage", {state: {item}})}
+    const navEdit = () => {navigate("./ItemPage", {state: {item}})}
 
     function handleDelete() {
         fetch(`http://localHost:3000/items/${item.id}`, {
@@ -20,12 +20,8 @@ function ItemCard( {item, location} ) {
     return (
         <div className="ItemCard">
             <div className="item-header">
-                {location === "ItemList" ? <>
                     <button onClick={navEdit} className="card-button edit-button">🖉</button>
-                    <button onClick={handleDelete} className="card-button remove-button">🗑</button></> : null}
-                {location === "DeletedList" ? <>
-                    <button onClick={handleDelete} className="card-button edit-button">⟳</button>
-                    <button onClick={handleShred} className="card-button remove-button">X</button> </> : null}
+                    <button onClick={handleDelete} className="card-button remove-button">🗑</button>
                 <h2 className="item-name">{item.name}</h2>
                 <h5 className="item-category inline">Necessity: {item.category}</h5>
                 <h5 className="item-price inline">Price: ${item.price}</h5>

@@ -32,10 +32,8 @@ function ItemList() {
         if (filter === "Price") { setItems(items.sort(comparePrice)) } else 
         if (filter === "Necessity") { setItems(items.sort(compareCategory)) }
         return (items.map(thisItem => {
-//This line is the only major difference of ItemList and DeletedList. Find a way to combine the two pages.
-//or remove deleted list entirely.
             return (!thisItem.deleted 
-                ? <ItemCard key={thisItem.id} item={thisItem} location={"ItemList"}/> 
+                ? <ItemCard key={thisItem.id} item={thisItem}/> 
                 : null)
         }))}
 

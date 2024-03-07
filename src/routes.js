@@ -1,7 +1,6 @@
 import App from "./pages/App"
 import ItemList from "./pages/ItemList"
 import ItemPage from "./pages/ItemPage"
-import EditPage from "./pages/EditPage"
 import ErrorPage from "./pages/ErrorPage"
 
 const routes = [
@@ -17,10 +16,6 @@ const routes = [
         {
           path: "/ItemPage",
           element: <ItemPage />
-        },
-        {
-          path: "/EditPage",
-          element: <EditPage />
         }
       ]
     },
