@@ -45,15 +45,6 @@
       "image": "https://target.scene7.com/is/image/Target/GUEST_43f55026-adf3-4fce-aed3-817994ff6d0e?wid=488&hei=488&fmt=pjpeg",
       "deleted": false,
       "id": 10
-    },
-    {
-      "name": "test",
-      "description": "test",
-      "category": "3",
-      "price": "3",
-      "image": "test",
-      "deleted": true,
-      "id": 11
     }
   ]
 }

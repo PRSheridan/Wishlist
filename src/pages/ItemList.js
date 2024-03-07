@@ -4,18 +4,12 @@ import ItemCard from "../components/ItemCard"
 
 //ItemList handles mapping all items to ItemCards, and allowing the user to filter the items.
 function ItemList() {
-    const { items, setItems } = useOutletContext();
+    const {items, setItems} = useOutletContext()
     const [filterArg, setFilterArg] = useState("")
     const [deletedArg, setDeletedArg] = useState(false)
 
 //setFilterArg, then refresh the page when a new filter is selected.
     const handleFilter = (event) => { setFilterArg(event.target.textContent) }
-
-    //useEffect is not doing anything here.
-    useEffect(() =>{
-//if filter === "", sort clone of items + filter for deleted/undeleted items.
-//Create new state variable for deletedArg (if displaying deleted items or not)
-    }, [filterArg])
 
 //handle comparisons of price, category, and alphabetical order.
     function comparePrice(a, b) {return b.price - a.price}
@@ -26,16 +20,17 @@ function ItemList() {
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     }
 
-//depeding on the value of filter, sort then map items to ItemCards.
-    function filterItems(filter) {
-        if (filter === "Name") { setItems(items.sort(compareName)) } else 
-        if (filter === "Price") { setItems(items.sort(comparePrice)) } else 
-        if (filter === "Necessity") { setItems(items.sort(compareCategory)) }
-        return (items.map(thisItem => {
-            return (!thisItem.deleted 
-                ? <ItemCard key={thisItem.id} item={thisItem}/> 
-                : null)
-        }))}
+//if filter === "", sort clone of items + filter for deleted/undeleted items.
+//Create new state variable for deletedArg (if displaying deleted items or not)
+//move deleted items button to within itemlist (near filter)
+
+    useEffect(() =>{
+        const tempItems = [...items]
+        if (filterArg === "Name") { tempItems.sort(compareName) } else 
+        if (filterArg === "Price") { tempItems.sort(comparePrice) } else 
+        if (filterArg === "Necessity") { tempItems.sort(compareCategory) }
+        setItems([...tempItems])
+    }, [filterArg])
 
     return(
         <aside>
@@ -54,7 +49,9 @@ function ItemList() {
                     onClick={handleFilter}>
                 Necessity</button>
             </div>
-            {filterItems(filterArg)}
+            {items.map((item) => {
+                return ( <ItemCard key={item.name} item={item} /> )
+            })}
             <Outlet />
         </aside>
     )
