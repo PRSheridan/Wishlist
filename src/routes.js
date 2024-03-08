@@ -1,7 +1,7 @@
-import App from "./pages/App"
-import ItemList from "./pages/ItemList"
-import ItemPage from "./pages/ItemPage"
-import ErrorPage from "./pages/ErrorPage"
+import App from "./components/App"
+import ItemList from "./components/ItemList"
+import ItemPage from "./components/ItemPage"
+import ErrorPage from "./components/ErrorPage"
 
 const routes = [
     {

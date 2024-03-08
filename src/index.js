@@ -7,5 +7,3 @@ import './index.css';
 const router = createBrowserRouter(routes);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( <RouterProvider router={router} /> );
-
-//review session / 1on1, review project review doc

@@ -3,13 +3,14 @@ import {useLocation, useNavigate, Outlet, useOutletContext } from "react-router-
 import ItemCard from "./ItemCard";
 
 //create a new item, and allow the user to fill out details.
+//ItemPage contains DeletedPage now, if passed an item from ItemCards navEdit- forms are prefilled with existing data
 function ItemPage() {
-
     const navigate = useNavigate();
     const location = useLocation();
     const isNewItem = (location.state.item === undefined)
     const {items, setItems} = useOutletContext();
 
+//fields now using individual state
     const [newName, setNewName] = useState(isNewItem ? "" : location.state.item.name)
     const [newDescription, setNewDescription] = useState(isNewItem ? "" : location.state.item.description)
     const [newCategory, setNewCategory] = useState(isNewItem ? "" : location.state.item.category)
@@ -37,6 +38,7 @@ function ItemPage() {
         navigate("/")
     }
 
+//if ItemPage was passted a state, update the item rather than add it.
     function handlePATCH(event) {
         event.preventDefault();
         const newItem = {
@@ -71,25 +73,21 @@ function handleChange(event) {
 
     return (
         <div className="ItemPage">
-            <div>
-                <h3 className="list-header">{isNewItem ? "Add an Item:" : "Edit Item:"} </h3>
-            </div>
-
+            <div><h3 className="list-header">{isNewItem ? "Add an Item:" : "Edit Item:"} </h3></div>
             <ItemCard item={{
             name: newName,
             description: newDescription,
             category: newCategory,
             price: newPrice,
             image: newImage,
-            deleted: false }} 
-            location={"ItemPage"}/>
-
+            deleted: false }} />
+{/*if the item is new (location.state.item != exist) :
+    handlePOST or PATCH, display different placeholder*/}
             <p className = "add-description">
                 {isNewItem 
                 ? `Enter the details of the item below, and click 'Submit' to add the item to your wishlist.`
                 : `Revise the details of the item below, and click 'Submit' to update the item.`}
                 </p>
-
             <form display="block" onSubmit={isNewItem 
                 ? handlePOST : handlePATCH}>
                 <input type="text" id="nameInput" 

@@ -7,7 +7,7 @@
       "price": "12",
       "image": "https://media.istockphoto.com/id/175397603/photo/frog.jpg?s=612x612&w=0&k=20&c=EMXlwg5SicJllr7gnSFUUjzwCGa1ciLjYD1bk8NvO2E=",
       "id": 1,
-      "deleted": false,
+      "deleted": true,
       "key": "Frog"
     },
     {
@@ -25,7 +25,7 @@
       "category": "2",
       "price": "15",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjAc3OMCEm_SgBd97nuQsE6Kvbvj5xbcDAG48IDsE3zw&s",
-      "deleted": false,
+      "deleted": true,
       "id": 5
     },
     {
