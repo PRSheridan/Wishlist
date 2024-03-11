@@ -10,7 +10,7 @@ const routes = [
       errorElement: <ErrorPage />,
       children: [
         {
-          path: "/",
+          path: "/ItemList",
           element: <ItemList />
         },
         {

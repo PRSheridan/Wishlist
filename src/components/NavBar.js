@@ -4,7 +4,7 @@ function NavBar( {setItems} ) {
     return(
         <nav id="navbar">
             <NavLink
-                to="/"
+                to="/ItemList"
                 className="nav-link"    
             >Home
             </NavLink>

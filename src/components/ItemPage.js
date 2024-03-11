@@ -81,6 +81,7 @@ function handleChange(event) {
             price: newPrice,
             image: newImage,
             deleted: false }} />
+            
 {/*if the item is new (location.state.item != exist) :
     handlePOST or PATCH, display different placeholder*/}
             <p className = "add-description">
