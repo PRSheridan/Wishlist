@@ -8,7 +8,6 @@ function ItemList() {
     const [filterArg, setFilterArg] = useState("")
     const [deletedArg, setDeletedArg] = useState(false)
 
-    //if deletedArg true, deleted button highlighted
     const handleFilter = (event) => { setFilterArg(event.target.textContent) }
     const handleDeletedArg = () => { setDeletedArg(!deletedArg) }
     const filterDeleted = (thisItem) => {
