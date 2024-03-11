@@ -95,7 +95,7 @@ aside {
   outline-width: 1px;
 }
 
-.filter-button:active {
+ .active {
   background: #FFD0D0;
 }
 

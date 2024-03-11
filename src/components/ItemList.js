@@ -8,6 +8,7 @@ function ItemList() {
     const [filterArg, setFilterArg] = useState("")
     const [deletedArg, setDeletedArg] = useState(false)
 
+    //if deletedArg true, deleted button highlighted
     const handleFilter = (event) => { setFilterArg(event.target.textContent) }
     const handleDeletedArg = () => { setDeletedArg(!deletedArg) }
     const filterDeleted = (thisItem) => {
@@ -32,19 +33,19 @@ function ItemList() {
             <h2 className="list-header">Current Items: </h2>
             <div className="filter-options">Filter by: 
                 <button 
-                    className="filter-button"
+                    className={filterArg === "Name" ? "filter-button active" : "filter-button"}
                     onClick={handleFilter}>
                 Name</button>
                 <button 
-                    className="filter-button"
+                    className={filterArg === "Price" ? "filter-button active" : "filter-button"}
                     onClick={handleFilter}>
                 Price</button>
                 <button 
-                    className="filter-button"
+                    className={filterArg === "Necessity" ? "filter-button active" : "filter-button"}
                     onClick={handleFilter}>
                 Necessity</button>
                 <button
-                    className="filter-button"
+                    className={deletedArg ? "filter-button active" : "filter-button"}
                     onClick={handleDeletedArg}>
                 Deleted</button>
             </div>
