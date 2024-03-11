@@ -1,9 +1,10 @@
 import {useState, useEffect} from "react"
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar"
 
 //retreive items, create header && NavBar, pass item state as Outlet context
 function App() {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
 
   useEffect(() =>{
@@ -11,6 +12,7 @@ function App() {
       .then(r => r.json())
       .then((data) => setItems(data))
       .catch(error => console.error(error));
+      navigate("/ItemList")
   }, []);
 
   return (
