@@ -4,7 +4,7 @@ import "./ItemCard.css"
 function ItemCard( { item } ) {
     const {setItems, items} = useOutletContext()
     const navigate = useNavigate();
-    const navEdit = () => {navigate("./ItemPage", {state: {item}})}
+    const navEdit = () => {navigate("/ItemPage", {state: {item}})}
 
     function handleDeleteRestore() {
         item.deleted = !item.deleted;
