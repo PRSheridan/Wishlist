@@ -17,7 +17,7 @@ When the page initially loads, you will see the *homepage* rendering with a list
 <br />
 <br />
 
-<img src="https://github.com/PRSheridan/phase-2-project/assets/142257140/0650dec1-ea5a-476f-a7ac-3e644b4177c2" alt="Add item gif" width="500" />
+<img src="https://github.com/PRSheridan/phase-2-project/assets/142257140/466e870c-b6b6-4e6a-8686-8fc8ab81988f" alt="Add item gif" width="500" />
 <br />
 <br />
 
@@ -25,7 +25,7 @@ Each item on the *homepage* can be **edited**, or **deleted**. When the edit but
 <br />
 <br />
 
-<img src="https://github.com/PRSheridan/phase-2-project/assets/142257140/3f6dc0af-3b43-464f-9e7d-2c3ba2a963e6" alt="other features gif" width="500" />
+<img src="https://github.com/PRSheridan/phase-2-project/assets/142257140/6f5a6326-6224-47fd-a7f6-b96e853c2a86" alt="other features gif" width="500" />
 <br />
 <br />
 
