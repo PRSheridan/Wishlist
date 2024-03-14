@@ -35,7 +35,7 @@ function ItemPage() {
         })
         .then((response) => response.json())
         .then((data) => setItems([...items, data]))
-        navigate("/")
+        navigate("/ItemList")
     }
 
 //if ItemPage was passted a state, update the item rather than add it.
@@ -60,7 +60,7 @@ function ItemPage() {
         .then(() => setItems(items.map(item => {
             if( item.id === location.state.item.id ) { return newItem }
             else { return item }})))
-        navigate("/")
+        navigate("/ItemList")
     };
 
 function handleChange(event) {
